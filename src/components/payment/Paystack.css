@@ -1,0 +1,91 @@
+/* Checkout.css */
+
+.checkout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    background-color: #fff;
+}
+
+.checkout-container h2 {
+    margin-bottom: 20px;
+}
+
+.checkout-container input,
+.checkout-container select,
+.checkout-container button,
+.checkout-container .paystack-button {
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.checkout-container input:focus,
+.checkout-container select:focus,
+.checkout-container button:focus,
+.checkout-container .paystack-button:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.checkout-container button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.checkout-container button:hover {
+    background-color: #0056b3;
+}
+
+.paystack-button {
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.paystack-button:hover {
+    background-color: #218838;
+}
+/* Checkout.css */
+
+.checkout-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.card-details {
+  margin-top: 15px;
+}
+
+.paystack-button {
+  background-color: #28a745;
+  color: #fff;
+  margin-top: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.paystack-button:hover {
+  background-color: #218838;
+}
