@@ -10,10 +10,12 @@ export default function Register() {
     const [nationality, setNation] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleForm = async (e) => {
         e.preventDefault();
+        setLoading(true); 
 
         try {
             const user = { fullname, email, nationality, password };
@@ -28,10 +30,12 @@ export default function Register() {
                         setNation("");
                         setPassword("");
                     });
-                    navigate('/login');
+                navigate('/login');
             }
         } catch (error) {
             console.error(error);
+        } finally {
+            setLoading(false);  // Set loading to false after the request is completed
         }
     };
 
@@ -95,7 +99,8 @@ export default function Register() {
                                 </div>
                                 <div className="mt-6">
                                     <input type="submit"
-                                        value="Register"
+                                        value={loading ? "Loading..." : "Register"}  // Change the button text based on loading state
+                                        disabled={loading}  // Disable the button while loading
                                         className="w-full bg-blue-700 text-white text-xl font-sans cursor-pointer hover:rounded-full h-12"
                                     />
                                 </div>
@@ -110,7 +115,6 @@ export default function Register() {
                             </form>
                             <div className="text-center mt-4 mb-6">
                                 <p>Already have an account? sign in <Link to='/login' style={{ color: 'blue' }}>Here</Link></p>
-                                <p>Return Home Here</p>
                             </div>
                         </div>
                     </div>

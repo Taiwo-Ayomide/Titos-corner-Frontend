@@ -80,7 +80,7 @@ const Login = () => {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)} // Toggle the state
+                  onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-2.5 text-blue-700 cursor-pointer"
                 >
                   {showPassword ? "Hide" : "Show"}
