@@ -1,19 +1,17 @@
-// src/pages/Login.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess } from '../redux/userRedux';
 import axiosInstance from '../requestMethods';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [loading, setLoading] = useState(false); // State to manage loading button text
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isFetching } = useSelector((state) => state.user);
-
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -25,6 +23,7 @@ const Login = () => {
     const user = { email, password };
 
     try {
+      setLoading(true); // Set loading state to true when the request is made
       const response = await axiosInstance.post('/users/login', user);
       if (response.status === 200) {
         const accessToken = response.data.accessToken;
@@ -42,6 +41,8 @@ const Login = () => {
     } catch (error) {
       console.error('Error during login:', error);
       alert('Login failed');
+    } finally {
+      setLoading(false); // Reset loading state after the request is completed
     }
   };
 
@@ -67,22 +68,29 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="mt-6">
+              <div className="mt-6 relative">
                 <label htmlFor="password">Password</label> <br />
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"} // Toggle password visibility
                   className="w-full border-2 border-blue-700 border-solid rounded-lg h-10 pr-5 pl-5"
                   name="password"
                   required
                   onChange={(e) => setPassword(e.target.value)}
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)} // Toggle the state
+                  className="absolute right-3 top-2.5 text-blue-700 cursor-pointer"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
               </div>
               <div className="mt-6">
                 <input
                   type="submit"
-                  value="Login"
+                  value={loading ? "Loading..." : "Login"} // Change button text based on loading state
                   className="w-full bg-blue-700 text-white text-xl font-sans cursor-pointer hover:rounded-full h-12"
-                  disabled={isFetching}
+                  disabled={isFetching || loading} // Disable button when loading or fetching
                 />
               </div>
             </form>
@@ -90,12 +98,6 @@ const Login = () => {
               <p>
                 Don't have an account? Sign up{' '}
                 <Link to="/register" style={{ color: 'blue' }}>
-                  Here
-                </Link>
-              </p>
-              <p>
-                Return Home{' '}
-                <Link to="/" style={{ color: 'blue' }}>
                   Here
                 </Link>
               </p>
