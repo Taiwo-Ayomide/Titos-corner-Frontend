@@ -33,7 +33,7 @@ const Login = () => {
           dispatch(loginSuccess(response.data));
           navigate('/'); // Redirect to homepage
         } else {
-          alert('Your account is not found on our server, please sign up')
+          // alert('Your account is not found on our server, please sign up')
           console.error('AccessToken not found in response data');
         }
       } else {
@@ -43,7 +43,6 @@ const Login = () => {
       alert('Incorrect Password or Email');
       console.error('Error during login:', error);
     } finally {
-      alert('We cannot process your login, Please try again later')
       setLoading(false); // Reset loading state after the request is completed
     }
   };
