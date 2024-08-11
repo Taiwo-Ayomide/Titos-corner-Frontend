@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="font text-white pb-10">USEFUL NAVIGATION</div>
             <ul className=' leading-7'>
                 <li className='text-white font'><Link to="/">Home</Link></li>
-                <li className='text-white font'><Link to="/blog">Blogs</Link>Link</li>
+                <li className='text-white font'><Link to="/blog">Blogs</Link></li>
                 <li className='text-white font'><Link to="/books">E-books</Link></li>
                 <li className='text-white font'><Link to="/recipe">Recipe</Link></li>
                 <li className='text-white font'><Link to="/audio">Podcast</Link></li>
@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
             <div className='flex pt-5'>
                 <h1><PhoneIcon className='w-5 text-white' /></h1>
-                <h1 className='ps-2 text-white font'>+0814 123 4567, +0814 142 4351</h1>
+                <h1 className='ps-2 text-white font'>0814 336 1746, +0814 142 4351</h1>
             </div>
             {/* <div className='flex'>
                 <h1><Facebook className='w-5 text-white' /></h1>

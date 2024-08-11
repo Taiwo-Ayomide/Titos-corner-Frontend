@@ -33,7 +33,7 @@ const Ebook = () => {
           data-aos-duration="3000"
         >
           <div className="flex flex-col items-center">
-            <img src={book.imageUrl} className="w-44 xl:w-60" alt="cover" />
+            <img src={book.imageUrl} className="w-44 xl:w-60" loading='lazy' alt="cover" />
             <div className="pt-3 text-center">
               <h1 className="font-bold text-xl">{book.title}</h1>
               <p className="text-sm pt-1">{book.description}</p>

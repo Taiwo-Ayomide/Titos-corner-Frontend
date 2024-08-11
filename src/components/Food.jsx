@@ -43,6 +43,9 @@ const Food = () => {
 
     return (
         <section className="pt-24 flex flex-wrap justify-center overflow-hidden">
+            <div>
+                <h1 className="font-semibold text-2xl">RECIPE</h1>
+            </div>
             {recipes.map((recipe) => (
                 <div
                     key={recipe.id}
@@ -54,7 +57,8 @@ const Food = () => {
                         <div className="p-5">
                             <article className="flex flex-col items-start justify-between">
                                 <div className="relative">
-                                    <img src={recipe.imageUrl} alt={recipe.name} className="w-full h-auto" />
+                                    {/* <img src={recipe.imageUrl} alt={recipe.name} loading="lazy" className="w-full h-auto" /> */}
+                                    <img src={recipe.imageUrl} alt={recipe.name} loading="lazy" className="w-full h-96 object-cover" style={{ width: '32rem', height: '32rem' }} />
                                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 hover:text-gray-600">
                                         {recipe.name}
                                     </h3>
