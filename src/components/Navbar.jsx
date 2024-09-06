@@ -8,8 +8,7 @@ const Navbar = () => {
         { name: 'Books', href: '/books', current: false },
         { name: 'Recipe', href: '/recipe', current: false },
         { name: 'Audio', href: '/audio', current: false },
-        { name: 'Register', href: '/register', current: false },
-        // { name: 'cart', href: '/cart', current: false },
+        { name: 'Gallery', href: '/gallery', current: false },
       ]
 
     function classNames(...classes) {

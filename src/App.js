@@ -14,6 +14,11 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
 import PaymentVerify from './pages/VerifyPayment';
+import Gallery from './pages/Gallery';
+
+// const PrivateRoute = ({ element, user }) => {
+//   return user ? element : <Navigate to="/login" />;
+// };
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -24,23 +29,24 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar /> 
       <div className="cont">
         <div className="leftside">
           <Routes>
-            {/* Home route with conditional redirect */}
-            <Route path="/" element={user ? <Home /> : <Navigate to="/login" />} />
-
-            {/* Login route with conditional redirect */}
+            {/* Public routes */}
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-
             <Route path="/blog" element={<Blog />} />
-            <Route path="/books" element={<Books />} />
             <Route path="/recipe" element={<Recipe />} />
             <Route path="/audio" element={<Audio />} />
             <Route path="/register" element={<Register />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/verify" element={<PaymentVerify />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/books" element={<Books />} />
+
+            {/* Protected Books route */}
+            {/* <Route path="/books" element={<PrivateRoute element={<Books />} user={user} />} /> */}
           </Routes>
         </div>
       </div>
